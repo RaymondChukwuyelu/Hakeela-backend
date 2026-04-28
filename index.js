@@ -24,6 +24,4 @@ mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log("mongoDB connected succesfully"))
 .catch((err) => console.log("mongoDB connection failed", err))
 
-// THE PORT EXPRESS IS LISTENING ON PROD/DEV 
-const PORT = process.env.PORT || 5000
-app.listen(PORT, () => console.log(`listening on PORT ${PORT}`))
+module.exports = app
