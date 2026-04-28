@@ -9,11 +9,11 @@ const options = {
         },
         servers: [
             {
-                url: "https://hakeela-backend.vercel.app/api"
+                url: "https://hakeela-backend.vercel.app/api" 
             }
         ],
     },
-    apis: ["../routes/*.js"]
+    apis: ["routes/*.js"]
 }
 
 const swaggerSpec = swaggerJSDoc(options)
