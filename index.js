@@ -19,7 +19,6 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 app.use('/api/auth', authRoutes)
 app.use('/api/user', userRoutes)
 app.use('/api', apiRoutes)
-console.log("Swagger Spec:", swaggerSpec);
 //MONGODB DATABASE CONNECTION 
 const startServer = async () => {
   try {

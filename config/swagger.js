@@ -14,9 +14,11 @@ const options = {
       },
     ],
   },
-  apis: [path.join(__dirname, "../routes/*.js")],
+  apis: [
+    path.join(__dirname, "../routes/authRoutes.js"),
+    path.join(__dirname, "../routes/apiRoutes.js"),
+    path.join(__dirname, "../routes/userRoute.js"),
+  ],
 };
 
-const swaggerSpec = swaggerJSDoc(options);
-
-module.exports = swaggerSpec;
+module.exports = swaggerJSDoc(options);
