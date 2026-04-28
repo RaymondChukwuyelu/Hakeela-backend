@@ -15,9 +15,9 @@ const options = {
   },
 
   apis: [
-    "routes/authRoutes.js",
-    "routes/apiRoutes.js",
-    "routes/userRoute.js",
+    "../routes/authRoutes.js",
+    "../routes/apiRoutes.js",
+    "../routes/userRoute.js",
   ],
 };
 
