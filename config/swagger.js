@@ -1,5 +1,4 @@
 const swaggerJSDoc = require("swagger-jsdoc");
-const path = require("path");
 
 const options = {
   definition: {
@@ -14,10 +13,11 @@ const options = {
       },
     ],
   },
+
   apis: [
-    path.join(__dirname, "../routes/authRoutes.js"),
-    path.join(__dirname, "../routes/apiRoutes.js"),
-    path.join(__dirname, "../routes/userRoute.js"),
+    "routes/authRoutes.js",
+    "routes/apiRoutes.js",
+    "routes/userRoute.js",
   ],
 };
 
