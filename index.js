@@ -20,8 +20,17 @@ app.use('/api/auth', authRoutes)
 app.use('/api/user', userRoutes)
 app.use('/api', apiRoutes)
 //MONGODB DATABASE CONNECTION 
-mongoose.connect(process.env.MONGO_URI)
-.then(() => console.log("mongoDB connected succesfully"))
-.catch((err) => console.log("mongoDB connection failed", err))
+const startServer = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log("MongoDB connected successfully");
+
+    module.exports = app; // export AFTER DB is ready
+  } catch (err) {
+    console.log("MongoDB connection failed", err);
+  }
+};
+
+startServer();
 
 module.exports = app
