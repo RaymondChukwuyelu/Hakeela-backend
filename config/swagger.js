@@ -9,12 +9,11 @@ const options = {
         },
         servers: [
             {
-                url:  process.env.API_URL || "https://hakeela-backend.vercel.app/api"
+                url: "https://hakeela-backend.vercel.app/api"
             }
         ],
     },
-    apis: ["./routes/*.js"]
-}
+apis: [path.join(__dirname, "../routes/*.js")]}
 
 const swaggerSpec = swaggerJSDoc(options)
 
