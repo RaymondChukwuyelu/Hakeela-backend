@@ -15,7 +15,7 @@ const swaggerSpec =  require('./config/swagger')
 app.use(express.json())
 app.use(cors());
 app.use(cookieParser())
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+app.use('/api-docs', swaggerUi.serveFiles(swaggerSpec), swaggerUi.setup(swaggerSpec))
 app.use('/api/auth', authRoutes)
 app.use('/api/user', userRoutes)
 app.use('/api', apiRoutes)
