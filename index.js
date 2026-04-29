@@ -6,16 +6,22 @@ const mongoose = require('mongoose')
 const cors = require('cors');
 const app = express()
 const authRoutes = require("./routes/authRoutes")
-const userRoutes =  require("./routes/userRoute")
+const userRoutes = require("./routes/userRoute")
 const apiRoutes = require("./routes/apiRoutes")
 const swaggerUi = require("swagger-ui-express")
-const swaggerSpec =  require('./config/swagger')
+const swaggerSpec = require('./config/swagger')
 
 //MIDDLEWARES
 app.use(express.json())
 app.use(cors());
 app.use(cookieParser())
-app.use('/api-docs', swaggerUi.serveFiles(swaggerSpec), swaggerUi.setup(swaggerSpec))
+app.get('/api-docs/swagger.json', (req, res) => { res.json(swaggerSpec) });
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
+  swaggerOptions: {
+    url: '/api-docs/swagger.json'
+  }
+}))
+
 app.use('/api/auth', authRoutes)
 app.use('/api/user', userRoutes)
 app.use('/api', apiRoutes)
