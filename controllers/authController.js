@@ -53,12 +53,7 @@ const signup = async (req, res) => {
         return res.status(201).json({
             success: true,
             message: "User created, check your email to verify account",
-            user: {
-                id: newUser._id,
-                email: newUser.email,
-                emailVerified: newUser.emailVerified,
-                profile: newUser.profile
-            }
+          
         });
 
     } catch (err) {

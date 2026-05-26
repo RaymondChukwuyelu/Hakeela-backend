@@ -13,9 +13,13 @@ const swaggerSpec = require('./config/swagger')
 
 //MIDDLEWARES
 app.use(express.json())
-app.use(cors());
-app.use(cookieParser())
-app.use( '/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use(
+  cors({
+    origin: ["https://hakeela-website-frontend-gold.vercel.app"],
+    credentials: true,
+  })
+); app.use(cookieParser())
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use('/api/auth', authRoutes)
 app.use('/api/user', userRoutes)
 app.use('/api', apiRoutes)
@@ -29,6 +33,8 @@ const startServer = async () => {
     console.log("MongoDB connection failed", err);
   }
 };
+
+app.listen("5000", () => console.log("connected"))
 
 startServer();
 
